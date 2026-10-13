@@ -1,0 +1,760 @@
+{
+ "_what": "One entry per paid-link placement across the live sites (wichaa excluded). url null renders nothing; paste a tpx.li link into url, run sync.py, rebuild the site. reused_from names the page whose existing link was copied because it is the same brand and the same destination; that link reports under its original Sub ID.",
+ "account": "Travelpayouts 749581",
+ "who": {
+  "en": "this site",
+  "th": "เว็บนี้",
+  "km": "គេហទំព័រនេះ"
+ },
+ "label": {
+  "en": "Paid link: {who} earns a fee if you book.",
+  "th": "ลิงก์มีค่าตอบแทน: {who}ได้ค่าแนะนำเมื่อคุณจองผ่านลิงก์นี้",
+  "km": "តំណមានកម្រៃ៖ {who}ទទួលបានកម្រៃពេលអ្នកកក់តាមតំណនេះ"
+ },
+ "replace": [
+  {
+   "brand": "BikesBooking",
+   "destination": "https://bikesbooking.com/en/rent-a-scooter-in-Chiang-Mai/",
+   "sub_id": "loop",
+   "old": "https://bikesbooking.tpx.li/KcOf7DBL (lands on bikesbooking.com/en/thailand/, 404 on 2026-10-04)",
+   "used_on": "mhs-loop",
+   "new": "https://bikesbooking.tpx.li/h4qvZsb2"
+  },
+  {
+   "brand": "BikesBooking",
+   "destination": "https://bikesbooking.com/en/rent-a-scooter-in-Chiang-Mai/",
+   "sub_id": "longstay",
+   "old": "https://bikesbooking.tpx.li/yes4CP7w (lands on bikesbooking.com/en/thailand/, 404 on 2026-10-04)",
+   "used_on": "long-stay, bike-rentals",
+   "new": "https://bikesbooking.tpx.li/vfFvNm9B"
+  }
+ ],
+ "sites": {
+  "mot-dang": {
+   "project": "mot-dang",
+   "mode": "json",
+   "file": "data/curated/affiliate.json",
+   "who_en": "Mot Dang",
+   "who_th": "มดแดง",
+   "live": "https://motdang.net/",
+   "deploy": "the walk (launchd standing walk, every 20 min)"
+  },
+  "golden-triangle": {
+   "project": "golden-triangle",
+   "mode": "html",
+   "files": [
+    "docs/visit/index.html"
+   ],
+   "live": "https://nanobotco.github.io/golden-triangle/",
+   "deploy": "pr-push"
+  },
+  "phnom-penh": {
+   "project": "phnom-penh",
+   "mode": "json",
+   "file": "data/affiliate.json",
+   "langs": [
+    "en",
+    "th",
+    "km"
+   ],
+   "live": "https://nanobotco.github.io/phnom-penh/",
+   "deploy": "python3 tools/build.py, then pr-push"
+  },
+  "ghost-chiang-mai": {
+   "project": "ghost-chiang-mai",
+   "mode": "json",
+   "file": "data/affiliate.json",
+   "langs": [
+    "en"
+   ],
+   "label_both": true,
+   "who_en": "Mot Dang",
+   "who_th": "มดแดง",
+   "live": "https://motdang.net/ghost/",
+   "deploy": "./publish.sh then tools/deploy_r2.py"
+  },
+  "markets": {
+   "project": "markets",
+   "mode": "json",
+   "file": "data/affiliate.json",
+   "who_en": "Mot Dang",
+   "who_th": "มดแดง",
+   "live": "https://motdang.net/markets/",
+   "deploy": "MOTDANG=1 tools/build.py, rsync to mot-dang/docs/markets, rides the walk"
+  },
+  "krathong": {
+   "project": "krathong",
+   "mode": "json",
+   "file": "data/affiliate.json",
+   "live": "https://motdang.net/sites/krathong/",
+   "deploy": "tools/build.py --motdang (rides the walk) + pr-push for nanobotco.github.io/krathong"
+  },
+  "muay-thai": {
+   "project": "muay-thai",
+   "mode": "json",
+   "file": "data/affiliate.json",
+   "live": "https://motdang.net/muay-thai/",
+   "deploy": "./publish.sh"
+  },
+  "defiant-site": {
+   "project": "defiant-site",
+   "mode": "json",
+   "file": "data/affiliate.json",
+   "who_en": "Defiant",
+   "who_th": "Defiant",
+   "langs": [
+    "en"
+   ],
+   "label_both": true,
+   "live": "https://defiant.to/",
+   "deploy": "nightly.sh (Cloudflare Pages)"
+  },
+  "skipdjt": {
+   "project": "skipdjt",
+   "mode": "json",
+   "file": "data/affiliate.json",
+   "langs": [
+    "en"
+   ],
+   "label_both": true,
+   "live": "https://nanobotco.github.io/skipdjt/",
+   "deploy": "weekly CI rebuild; pr-push"
+  },
+  "hak-farang": {
+   "project": "hak-farang",
+   "mode": "json",
+   "file": "src/data/affiliate.json",
+   "langs": [
+    "th"
+   ],
+   "live": "https://hakfarang.net/",
+   "deploy": "npm run build, Cloudflare Pages"
+  }
+ },
+ "slots": [
+  {
+   "site": "mot-dang",
+   "page": "CNX airport place pages",
+   "slot": "md-cnx-kiwitaxi",
+   "brand": "Kiwitaxi",
+   "destination": "https://kiwitaxi.com/en/thailand/chiang-mai",
+   "sub_id": "motdang-cnx-kiwitaxi",
+   "url": "https://kiwitaxi.tpx.li/TdHDVcyJ",
+   "reused_from": "motdang flights board",
+   "text_en": "Airport transfer · Kiwitaxi",
+   "text_th": "รถรับส่งสนามบิน · Kiwitaxi",
+   "records": [
+    "cm-curated-chiang-mai-airport",
+    "cm-osm-relation-12410725",
+    "cm-osm-way-58309446",
+    "cm-ovt-f78505cf-db19-417d-8b9c-3c3888889b9b",
+    "cm-ovt-dbc7fa70-df39-4d62-a034-aa7525d01497"
+   ]
+  },
+  {
+   "site": "mot-dang",
+   "page": "CNX airport place pages",
+   "slot": "md-cnx-welcome",
+   "brand": "Welcome Pickups",
+   "destination": "https://www.welcomepickups.com/chiang-mai/",
+   "sub_id": "motdang-cnx-welcome",
+   "url": "https://tpx.li/AGwXCfaX",
+   "reused_from": "motdang flights board",
+   "text_en": "Driver at arrivals · Welcome Pickups",
+   "text_th": "คนขับรอที่ขาเข้า · Welcome Pickups",
+   "records": [
+    "cm-curated-chiang-mai-airport",
+    "cm-osm-relation-12410725",
+    "cm-osm-way-58309446",
+    "cm-ovt-f78505cf-db19-417d-8b9c-3c3888889b9b",
+    "cm-ovt-dbc7fa70-df39-4d62-a034-aa7525d01497"
+   ]
+  },
+  {
+   "site": "mot-dang",
+   "page": "CNX airport place pages",
+   "slot": "md-cnx-esim",
+   "brand": "Yesim",
+   "destination": "https://yesim.app/country/thailand/",
+   "sub_id": "motdang-cnx-esim",
+   "url": "https://yesim.tpx.li/qhsZDJvy",
+   "reused_from": "motdang flights board",
+   "text_en": "Thailand eSIM · Yesim",
+   "text_th": "eSIM ไทย · Yesim",
+   "records": [
+    "cm-curated-chiang-mai-airport",
+    "cm-osm-relation-12410725",
+    "cm-osm-way-58309446",
+    "cm-ovt-f78505cf-db19-417d-8b9c-3c3888889b9b",
+    "cm-ovt-dbc7fa70-df39-4d62-a034-aa7525d01497"
+   ]
+  },
+  {
+   "site": "mot-dang",
+   "page": "CNX airport place pages",
+   "slot": "md-cnx-luggage",
+   "brand": "Radical Storage",
+   "destination": "https://radicalstorage.com/luggage-storage/chiang-mai",
+   "sub_id": "motdang-cnx-luggage",
+   "url": "https://radicalstorage.tpx.li/1kzmdckO",
+   "reused_from": "mhs-loop",
+   "text_en": "Luggage storage in Chiang Mai · Radical Storage",
+   "text_th": "ฝากกระเป๋าในเชียงใหม่ · Radical Storage",
+   "records": [
+    "cm-curated-chiang-mai-airport",
+    "cm-osm-relation-12410725",
+    "cm-osm-way-58309446",
+    "cm-ovt-f78505cf-db19-417d-8b9c-3c3888889b9b",
+    "cm-ovt-dbc7fa70-df39-4d62-a034-aa7525d01497"
+   ]
+  },
+  {
+   "site": "mot-dang",
+   "page": "CEI airport place pages",
+   "slot": "md-cei-kiwitaxi",
+   "brand": "Kiwitaxi",
+   "destination": "https://kiwitaxi.com/en/thailand/chiang-rai",
+   "sub_id": "motdang-cei-kiwitaxi",
+   "url": "https://kiwitaxi.tpx.li/nHb3V5sk",
+   "text_en": "Airport transfer · Kiwitaxi",
+   "text_th": "รถรับส่งสนามบิน · Kiwitaxi",
+   "records": [
+    "cr-osm-way-593126810",
+    "cr-osm-way-87458645"
+   ]
+  },
+  {
+   "site": "mot-dang",
+   "page": "CEI airport place pages",
+   "slot": "md-cei-esim",
+   "brand": "Yesim",
+   "destination": "https://yesim.app/country/thailand/",
+   "sub_id": "motdang-cei-esim",
+   "url": "https://yesim.tpx.li/qhsZDJvy",
+   "reused_from": "motdang flights board",
+   "text_en": "Thailand eSIM · Yesim",
+   "text_th": "eSIM ไทย · Yesim",
+   "records": [
+    "cr-osm-way-593126810",
+    "cr-osm-way-87458645"
+   ]
+  },
+  {
+   "site": "mot-dang",
+   "page": "Chiang Mai Night Safari place pages",
+   "slot": "md-nightsafari",
+   "brand": "Klook",
+   "destination": "https://www.klook.com/en-US/activity/1112-night-safari-park-chiang-mai/",
+   "sub_id": "motdang-nightsafari",
+   "url": "https://klook.tpx.li/wZLOsZQ3",
+   "text_en": "Night Safari tickets · Klook",
+   "text_th": "บัตรเชียงใหม่ไนท์ซาฟารี · Klook",
+   "records": [
+    "cm-ovt-24d136a6-1e70-4bfd-9bdd-51da8a482b97",
+    "cm-ovt-ec184b0a-b0fa-4ad9-8ee5-e90bd9fd4807"
+   ]
+  },
+  {
+   "site": "golden-triangle",
+   "page": "/visit/",
+   "slot": "gt-car",
+   "brand": "Localrent",
+   "destination": "https://www.localrent.com/en/thailand/chiang-rai/",
+   "sub_id": "goldentriangle-car",
+   "url": "https://localrent.tpx.li/7HkeNoZ8",
+   "text_en": "Rental cars in Chiang Rai · Localrent",
+   "text_th": "รถเช่าในเชียงราย · Localrent"
+  },
+  {
+   "site": "golden-triangle",
+   "page": "/visit/",
+   "slot": "gt-day",
+   "brand": "Klook",
+   "destination": "https://www.klook.com/en-US/destination/c216-chiang-rai/1-things-to-do/",
+   "sub_id": "goldentriangle-day",
+   "url": "https://klook.tpx.li/x9y0hpQn",
+   "text_en": "Chiang Rai day trips · Klook",
+   "text_th": "ทริปวันเดียวจากเชียงราย · Klook"
+  },
+  {
+   "site": "phnom-penh",
+   "page": "/#/trip (The airport)",
+   "slot": "pp-airport",
+   "brand": "Kiwitaxi",
+   "destination": "https://kiwitaxi.com/en/cambodia/phnom-penh",
+   "sub_id": "phnompenh-airport",
+   "url": "https://kiwitaxi.tpx.li/8garT4vO",
+   "text_en": "Fixed-price car from KTI · Kiwitaxi",
+   "text_th": "รถราคาเหมาจาก KTI · Kiwitaxi",
+   "text_km": "ឡានតម្លៃថេរពី KTI · Kiwitaxi"
+  },
+  {
+   "site": "phnom-penh",
+   "page": "/#/trip (On landing)",
+   "slot": "pp-esim",
+   "brand": "Airalo",
+   "destination": "https://www.airalo.com/cambodia-esim",
+   "sub_id": "phnompenh-esim",
+   "url": "https://airalo.tpx.li/eFk4cag9",
+   "text_en": "Cambodia eSIM · Airalo",
+   "text_th": "eSIM กัมพูชา · Airalo",
+   "text_km": "eSIM កម្ពុជា · Airalo"
+  },
+  {
+   "site": "phnom-penh",
+   "page": "/#/trip (Siem Reap SAI)",
+   "slot": "pp-sai",
+   "brand": "Kiwitaxi",
+   "destination": "https://kiwitaxi.com/en/cambodia/siem-reap",
+   "sub_id": "phnompenh-sai",
+   "url": "https://kiwitaxi.tpx.li/ESEGYViu",
+   "text_en": "Fixed-price car from SAI · Kiwitaxi",
+   "text_th": "รถราคาเหมาจาก SAI · Kiwitaxi",
+   "text_km": "ឡានតម្លៃថេរពី SAI · Kiwitaxi"
+  },
+  {
+   "site": "phnom-penh",
+   "page": "/#/trip (Do this: Book)",
+   "slot": "pp-flights",
+   "brand": "Aviasales",
+   "destination": "https://www.aviasales.com/",
+   "sub_id": "phnompenh-flights",
+   "url": "https://aviasales.tpx.li/6l0bdsgE",
+   "text_en": "Fares · Aviasales",
+   "text_th": "ราคาตั๋ว · Aviasales",
+   "text_km": "តម្លៃសំបុត្រ · Aviasales"
+  },
+  {
+   "site": "phnom-penh",
+   "page": "/#/trip (Day before Angkor)",
+   "slot": "pp-angkor",
+   "brand": "Klook",
+   "destination": "https://www.klook.com/en-US/destination/c10-siem-reap/1-things-to-do/",
+   "sub_id": "phnompenh-angkor",
+   "url": "https://klook.tpx.li/qUnoIXOS",
+   "text_en": "Angkor tours · Klook",
+   "text_th": "ทัวร์นครวัด · Klook",
+   "text_km": "ដំណើរកម្សាន្តអង្គរ · Klook"
+  },
+  {
+   "site": "ghost-chiang-mai",
+   "page": "/ghost/scoot/",
+   "slot": "ghost-scoot",
+   "brand": "BikesBooking",
+   "destination": "https://bikesbooking.com/en/rent-a-scooter-in-Chiang-Mai/",
+   "sub_id": "ghost-scoot",
+   "url": "https://bikesbooking.tpx.li/RaJvtcto",
+   "text_en": "Scooters for hire in Chiang Mai · BikesBooking",
+   "text_th": "มอเตอร์ไซค์เช่าในเชียงใหม่ · BikesBooking"
+  },
+  {
+   "site": "markets",
+   "page": "/markets/cm/chamcha/",
+   "slot": "mk-chamcha-car",
+   "brand": "Localrent",
+   "destination": "https://www.localrent.com/en/thailand/",
+   "sub_id": "markets-chamcha-car",
+   "url": "https://localrent.tpx.li/wBAAptnW",
+   "reused_from": "long-stay",
+   "text_en": "Rental cars · Localrent",
+   "text_th": "รถเช่า · Localrent"
+  },
+  {
+   "site": "markets",
+   "page": "/markets/cm/chamcha/",
+   "slot": "mk-chamcha-scooter",
+   "brand": "BikesBooking",
+   "destination": "https://bikesbooking.com/en/rent-a-scooter-in-Chiang-Mai/",
+   "sub_id": "markets-chamcha-scooter",
+   "url": "https://bikesbooking.tpx.li/02tDlO2g",
+   "text_en": "Scooters for hire · BikesBooking",
+   "text_th": "มอเตอร์ไซค์เช่า · BikesBooking"
+  },
+  {
+   "site": "krathong",
+   "page": "/sites/krathong/#yipeng",
+   "slot": "kt-yipeng",
+   "brand": "Klook",
+   "destination": "https://www.klook.com/en-US/search/result/?query=yi+peng+chiang+mai",
+   "sub_id": "krathong-yipeng",
+   "url": "https://klook.tpx.li/cTRLZEBu",
+   "reused_from": "khom-loi",
+   "text_en": "Yi Peng tickets · Klook",
+   "text_th": "บัตรงานยี่เป็ง · Klook"
+  },
+  {
+   "site": "muay-thai",
+   "page": "/venue/rajadamnern/",
+   "slot": "mt-rajadamnern",
+   "brand": "Klook",
+   "destination": "https://www.klook.com/en-US/activity/92826-muay-thai-rajadamnern-stadium-bangkok/",
+   "sub_id": "muaythai-rajadamnern",
+   "url": "https://klook.tpx.li/QGsnLz3u",
+   "text_en": "Rajadamnern tickets · Klook",
+   "text_th": "บัตรเวทีราชดำเนิน · Klook"
+  },
+  {
+   "site": "muay-thai",
+   "page": "/venue/lumpinee/",
+   "slot": "mt-lumpinee",
+   "brand": "Klook",
+   "destination": "https://www.klook.com/en-US/activity/80564-muay-thai-vip-ticket-bangkok/",
+   "sub_id": "muaythai-lumpinee",
+   "url": "https://klook.tpx.li/JnPlV3wL",
+   "text_en": "Lumpinee tickets · Klook",
+   "text_th": "บัตรเวทีลุมพินี · Klook"
+  },
+  {
+   "site": "defiant-site",
+   "page": "/procedures/spinal-surgery/",
+   "slot": "df-spine-flight",
+   "brand": "Aviasales",
+   "destination": "https://www.aviasales.com/",
+   "sub_id": "defiant-spine-flight",
+   "url": "https://aviasales.tpx.li/Ka4NWVCf",
+   "text_en": "Fares to Bangkok · Aviasales"
+  },
+  {
+   "site": "skipdjt",
+   "page": "/ (Getting to Fort Lauderdale or Miami)",
+   "slot": "sdj-welcome",
+   "brand": "Welcome Pickups",
+   "destination": "https://www.welcomepickups.com/miami/airport-transfer/",
+   "sub_id": "skipdjt-welcome",
+   "url": "https://tpx.li/uF5y8zTs",
+   "text_en": "Driver at MIA arrivals · Welcome Pickups"
+  },
+  {
+   "site": "hak-farang",
+   "page": "article cards (airalo slot)",
+   "slot": "hf-airalo",
+   "brand": "Airalo",
+   "destination": "https://www.airalo.com/",
+   "sub_id": "hakfarang-airalo",
+   "url": "https://airalo.tpx.li/X4hCTBWS",
+   "text_th": "eSIM ประเทศปลายทาง · Airalo"
+  },
+  {
+   "site": "hak-farang",
+   "page": "article cards (flights slot)",
+   "slot": "hf-flights",
+   "brand": "Aviasales",
+   "destination": "https://www.aviasales.com/",
+   "sub_id": "hakfarang-flights",
+   "url": "https://aviasales.tpx.li/LPknZvpT",
+   "text_th": "ค้นหาเที่ยวบิน · Aviasales"
+  },
+  {
+   "site": "mot-dang",
+   "page": "CM sights place pages + sights and tours shelves",
+   "slot": "md-cm-tours",
+   "brand": "Klook",
+   "destination": "https://www.klook.com/en-US/destination/c5-chiang-mai/1-things-to-do/",
+   "sub_id": "motdang-cm-tours",
+   "url": "https://klook.tpx.li/ufknb568",
+   "text_en": "Chiang Mai tours & tickets · Klook",
+   "text_th": "ทัวร์และตั๋วเที่ยวเชียงใหม่ · Klook",
+   "shelves": [
+    "sights/waterfall",
+    "sights/peak",
+    "sights/viewpoint",
+    "sights/nature",
+    "sights/hot-spring",
+    "sights/cave",
+    "sights/historic",
+    "sights/outing"
+   ],
+   "prov": "cm",
+   "on": "both"
+  },
+  {
+   "site": "mot-dang",
+   "page": "CM sights and tours shelf pages",
+   "slot": "md-cm-tours-shelf",
+   "brand": "Klook",
+   "destination": "https://www.klook.com/en-US/destination/c5-chiang-mai/1-things-to-do/",
+   "sub_id": "motdang-cm-tours",
+   "url": "https://klook.tpx.li/ufknb568",
+   "text_en": "Chiang Mai tours & tickets · Klook",
+   "text_th": "ทัวร์และตั๋วเที่ยวเชียงใหม่ · Klook",
+   "shelves": [
+    "sights",
+    "transport/tours"
+   ],
+   "prov": "cm",
+   "on": "shelf"
+  },
+  {
+   "site": "mot-dang",
+   "page": "CR sights place pages + sights and tours shelves",
+   "slot": "md-cr-tours",
+   "brand": "Klook",
+   "destination": "https://www.klook.com/en-US/destination/c216-chiang-rai/1-things-to-do/",
+   "sub_id": "motdang-cr-tours",
+   "url": "https://klook.tpx.li/JEGzLknR",
+   "text_en": "Chiang Rai tours & tickets · Klook",
+   "text_th": "ทัวร์และตั๋วเที่ยวเชียงราย · Klook",
+   "shelves": [
+    "sights/waterfall",
+    "sights/peak",
+    "sights/viewpoint",
+    "sights/nature",
+    "sights/hot-spring",
+    "sights/cave",
+    "sights/historic",
+    "sights/outing"
+   ],
+   "prov": "cr",
+   "on": "both"
+  },
+  {
+   "site": "mot-dang",
+   "page": "CR sights and tours shelf pages",
+   "slot": "md-cr-tours-shelf",
+   "brand": "Klook",
+   "destination": "https://www.klook.com/en-US/destination/c216-chiang-rai/1-things-to-do/",
+   "sub_id": "motdang-cr-tours",
+   "url": "https://klook.tpx.li/JEGzLknR",
+   "text_en": "Chiang Rai tours & tickets · Klook",
+   "text_th": "ทัวร์และตั๋วเที่ยวเชียงราย · Klook",
+   "shelves": [
+    "sights",
+    "transport/tours"
+   ],
+   "prov": "cr",
+   "on": "shelf"
+  },
+  {
+   "site": "mot-dang",
+   "page": "CM car-rental shelf + airport pages",
+   "slot": "md-cm-car",
+   "brand": "Localrent",
+   "destination": "https://www.localrent.com/en/thailand/chiangmai/",
+   "sub_id": "motdang-cm-car",
+   "url": "https://localrent.tpx.li/Guc9HBC1",
+   "text_en": "Rental cars in Chiang Mai · Localrent",
+   "text_th": "รถเช่าในเชียงใหม่ · Localrent",
+   "shelves": [
+    "transport/car-rental",
+    "transport/airport"
+   ],
+   "prov": "cm",
+   "on": "shelf"
+  },
+  {
+   "site": "mot-dang",
+   "page": "CR car-rental shelf + airport pages",
+   "slot": "md-cr-car",
+   "brand": "Localrent",
+   "destination": "https://www.localrent.com/en/thailand/chiang-rai/",
+   "sub_id": "motdang-cr-car",
+   "url": "https://localrent.tpx.li/r9e76OLN",
+   "text_en": "Rental cars in Chiang Rai · Localrent",
+   "text_th": "รถเช่าในเชียงราย · Localrent",
+   "shelves": [
+    "transport/car-rental",
+    "transport/airport"
+   ],
+   "prov": "cr",
+   "on": "shelf"
+  },
+  {
+   "site": "mot-dang",
+   "page": "CM motorbike-rental shelf",
+   "slot": "md-cm-scooter",
+   "brand": "BikesBooking",
+   "destination": "https://bikesbooking.com/en/rent-a-scooter-in-Chiang-Mai/",
+   "sub_id": "motdang-cm-scooter",
+   "url": "https://bikesbooking.tpx.li/8rrBtDKf",
+   "text_en": "Scooter rental in Chiang Mai · BikesBooking",
+   "text_th": "เช่ามอเตอร์ไซค์ในเชียงใหม่ · BikesBooking",
+   "shelves": [
+    "transport/motorbike-rental"
+   ],
+   "prov": "cm",
+   "on": "shelf"
+  },
+  {
+   "site": "mot-dang",
+   "page": "CR motorbike-rental shelf",
+   "slot": "md-cr-scooter",
+   "brand": "BikesBooking",
+   "destination": "https://bikesbooking.com/en/rent-a-scooter-in-Chiang-Rai/",
+   "sub_id": "motdang-cr-scooter",
+   "url": "https://bikesbooking.tpx.li/5nqCfvwQ",
+   "text_en": "Scooter rental in Chiang Rai · BikesBooking",
+   "text_th": "เช่ามอเตอร์ไซค์ในเชียงราย · BikesBooking",
+   "shelves": [
+    "transport/motorbike-rental"
+   ],
+   "prov": "cr",
+   "on": "shelf"
+  },
+  {
+   "site": "mot-dang",
+   "page": "CM cooking-class shelf",
+   "slot": "md-cm-cooking",
+   "brand": "Klook",
+   "destination": "https://www.klook.com/en-US/search/result/?query=chiang%20mai%20cooking%20class",
+   "sub_id": "motdang-cm-cooking",
+   "url": "https://klook.tpx.li/OgG4Fpo1",
+   "text_en": "Cooking classes · Klook",
+   "text_th": "คลาสทำอาหาร · Klook",
+   "shelves": [
+    "cooking"
+   ],
+   "prov": "cm",
+   "on": "shelf"
+  },
+  {
+   "site": "mot-dang",
+   "page": "CM elephant shelf",
+   "slot": "md-cm-elephant",
+   "brand": "Klook",
+   "destination": "https://www.klook.com/en-US/search/result/?query=chiang%20mai%20elephant%20sanctuary",
+   "sub_id": "motdang-cm-elephant",
+   "url": "https://klook.tpx.li/onnKOtA7",
+   "text_en": "Elephant sanctuary visits · Klook",
+   "text_th": "เที่ยวปางช้าง · Klook",
+   "shelves": [
+    "chang"
+   ],
+   "prov": "cm",
+   "on": "shelf"
+  },
+  {
+   "site": "mot-dang",
+   "page": "CM Muay Thai stadium pages",
+   "slot": "md-cm-muaythai",
+   "brand": "Klook",
+   "destination": "https://www.klook.com/en-US/search/result/?query=chiang%20mai%20muay%20thai",
+   "sub_id": "motdang-cm-muaythai",
+   "url": "https://klook.tpx.li/ykBHYRI9",
+   "text_en": "Muay Thai tickets · Klook",
+   "text_th": "ตั๋วมวยไทย · Klook",
+   "shelves": [
+    "muaythai/stadium"
+   ],
+   "prov": "cm",
+   "on": "both"
+  },
+  {
+   "site": "mot-dang",
+   "page": "CM Muay Thai shelf page",
+   "slot": "md-cm-muaythai-shelf",
+   "brand": "Klook",
+   "destination": "https://www.klook.com/en-US/search/result/?query=chiang%20mai%20muay%20thai",
+   "sub_id": "motdang-cm-muaythai",
+   "url": "https://klook.tpx.li/ykBHYRI9",
+   "text_en": "Muay Thai tickets · Klook",
+   "text_th": "ตั๋วมวยไทย · Klook",
+   "shelves": [
+    "muaythai"
+   ],
+   "prov": "cm",
+   "on": "shelf"
+  },
+  {
+   "site": "mot-dang",
+   "page": "Visa office pages + visa shelf",
+   "slot": "md-insurance",
+   "brand": "EKTA",
+   "destination": "https://ektatraveling.com/",
+   "sub_id": "motdang-ekta",
+   "url": "https://ektatraveling.tpx.li/v7iXBP12",
+   "text_en": "Travel insurance · EKTA",
+   "text_th": "ประกันเดินทาง · EKTA",
+   "shelves": [
+    "essentials/visa"
+   ],
+   "on": "both"
+  },
+  {
+   "site": "mot-dang",
+   "page": "CM hotel, guesthouse and hostel pages",
+   "slot": "md-hotel-transfer-cm",
+   "brand": "Kiwitaxi",
+   "destination": "https://kiwitaxi.com/en/thailand/chiang-mai",
+   "sub_id": "motdang-hotel-transfer-cm",
+   "url": "https://kiwitaxi.tpx.li/u9gkwlNh",
+   "text_en": "Airport transfer · Kiwitaxi",
+   "text_th": "รถรับส่งสนามบิน · Kiwitaxi",
+   "shelves": [
+    "hotel"
+   ],
+   "prov": "cm",
+   "on": "both"
+  },
+  {
+   "site": "mot-dang",
+   "page": "CR hotel, guesthouse and hostel pages",
+   "slot": "md-hotel-transfer-cr",
+   "brand": "Kiwitaxi",
+   "destination": "https://kiwitaxi.com/en/thailand/chiang-rai",
+   "sub_id": "motdang-hotel-transfer-cr",
+   "url": "https://kiwitaxi.tpx.li/Wk9NnU9t",
+   "text_en": "Airport transfer · Kiwitaxi",
+   "text_th": "รถรับส่งสนามบิน · Kiwitaxi",
+   "shelves": [
+    "hotel"
+   ],
+   "prov": "cr",
+   "on": "both"
+  },
+  {
+   "site": "mot-dang",
+   "page": "CM hotel, guesthouse and hostel pages",
+   "slot": "md-hotel-luggage-cm",
+   "brand": "Radical Storage",
+   "destination": "https://radicalstorage.com/luggage-storage/chiang-mai",
+   "sub_id": "motdang-hotel-luggage-cm",
+   "url": "https://radicalstorage.tpx.li/79A3dneV",
+   "text_en": "Luggage storage · Radical Storage",
+   "text_th": "ฝากกระเป๋า · Radical Storage",
+   "shelves": [
+    "hotel"
+   ],
+   "prov": "cm",
+   "on": "both"
+  },
+  {
+   "site": "mot-dang",
+   "page": "Hotel, guesthouse and hostel pages",
+   "slot": "md-hotel-esim",
+   "brand": "Airalo",
+   "destination": "https://www.airalo.com/thailand-esim",
+   "sub_id": "motdang-hotel-esim",
+   "url": "https://airalo.tpx.li/r5DOKmfw",
+   "text_en": "Thailand eSIM · Airalo",
+   "text_th": "eSIM ไทย · Airalo",
+   "shelves": [
+    "hotel"
+   ],
+   "on": "both"
+  },
+  {
+   "site": "mot-dang",
+   "page": "front page calendar, Plan ahead festival cards (Chiang Mai)",
+   "slot": "md-plan-room-cm",
+   "brand": "Agoda",
+   "destination": "https://www.agoda.com/city/chiang-mai-th.html",
+   "sub_id": "motdang-plan-room-cm",
+   "url": null,
+   "text_en": "Book a room in Chiang Mai · Agoda",
+   "text_th": "จองที่พักในเชียงใหม่ · Agoda",
+   "note": "Nan 2026-10-11, fork 4 (b). Agoda is locked in Travelpayouts until the project passes review; read by front_layer.bake_ahead, not by a shelf"
+  },
+  {
+   "site": "mot-dang",
+   "page": "front page calendar, Plan ahead festival cards (Chiang Rai)",
+   "slot": "md-plan-room-cr",
+   "brand": "Agoda",
+   "destination": "https://www.agoda.com/city/chiang-rai-th.html",
+   "sub_id": "motdang-plan-room-cr",
+   "url": null,
+   "text_en": "Book a room in Chiang Rai · Agoda",
+   "text_th": "จองที่พักในเชียงราย · Agoda",
+   "note": "Nan 2026-10-11, fork 4 (b). Agoda is locked in Travelpayouts until the project passes review; read by front_layer.bake_ahead, not by a shelf"
+  }
+ ]
+}
